@@ -8,10 +8,14 @@
 .accordion__item {
   position: relative;
   width: 100%;
-  padding-left: block(large);
+  padding-left: block(medium);
 
   input {
     display: none;
+  }
+
+  @include breakpoint(medium up) {
+    padding-left: block(large);
   }
 }
 
@@ -19,8 +23,13 @@
 .accordion__item::after {
   content: "";
   position: absolute;
-  top: 18px;
-  left: 24px;
+  top: 14px;
+  left: 12px;
+
+  @include breakpoint(medium up) {
+    top: 18px;
+    left: 24px;
+  }
 }
 
 .accordion__item::before {
@@ -57,23 +66,42 @@
 .accordion__heading::after {
   content: "";
   position: absolute;
-  top: 28px;
-  right: block(gutter);
-  width: 16px;
+  top: 24px;
+  right: block(small);
+  width: 12px;
   height: 2px;
   background-color: currentColor;
+
+  @include breakpoint(medium up) {
+    top: 28px;
+    right: block(gutter);
+    width: 16px;
+    height: 2px;
+  }
 }
 
 .accordion__heading::before {
-  transform: translateY(-4px) rotate(30deg);
+  transform: translateY(-6px) rotate(30deg);
+
+  @include breakpoint(medium up) {
+    transform: translateY(-4px) rotate(30deg);
+  }
 }
 
 .accordion__heading::after {
-  transform: translateY(3px) rotate(-30deg);
+  transform: translateY(0px) rotate(-30deg);
+
+  @include breakpoint(medium up) {
+    transform: translateY(3px) rotate(-30deg);
+  }
 }
 
 .accordion__heading p {
-  font-size: 24px;
+  font-size: 18px;
+
+  @include breakpoint(medium up) {
+    font-size: 24px;
+  }
 }
 
 .accordion__content {
