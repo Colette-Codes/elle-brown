@@ -1,6 +1,11 @@
 @mixin section {
-  padding-top: block(large);
-  padding-bottom: block(large);
+  padding-top: block(medium);
+  padding-bottom: block(medium);
+
+  @include breakpoint(medium up) {
+    padding-top: block(large);
+    padding-bottom: block(large);
+  }
 }
 
 .section {
@@ -8,5 +13,9 @@
 }
 
 .section__title {
-  margin-bottom: block(medium);
+  margin-bottom: block(gutter);
+
+  @include breakpoint(medium up) {
+    margin-bottom: block(medium);
+  }
 }

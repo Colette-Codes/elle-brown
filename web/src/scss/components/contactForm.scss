@@ -1,12 +1,12 @@
 .contactForm {
   display: grid;
-  padding: block(medium);
+  padding: block(gutter);
   background-color: color(mid);
-  // grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: block(medium);
 
   @include breakpoint(medium up) {
+    padding: block(medium);
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: block(medium);
   }
 }
 

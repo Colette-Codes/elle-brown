@@ -1,24 +1,49 @@
 .navigation__list {
-  @include inline-list;
-  margin-right: -(block(small));
-  margin-left: -(block(small));
+  @include breakpoint(small down) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 240px;
+    background-color: white;
+    box-shadow: 0 0 12px color(dark);
+    transform: translateX(110%);
+    z-index: 10;
+  }
+
+  @include breakpoint(medium up) {
+    @include inline-list;
+    margin-right: -(block(small));
+    margin-left: -(block(small));
+  }
 }
 
 .navigation__list a {
   display: block;
   position: relative;
+
+  @include breakpoint(small down) {
+    padding: block(gutter);
+    border-bottom: 1px solid color(mid);
+
+    li.navigation-icon & {
+      border-bottom: none;
+    }
+  }
 }
 
 .navigation__list a::after {
-  @include transition(background-color);
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: calc(100% + 8px);
-  height: 10px;
-  transform: translate(-50%, -4px);
-  z-index: -1;
+  @include breakpoint(medium up) {
+    @include transition(background-color);
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: calc(100% + 8px);
+    height: 10px;
+    transform: translate(-50%, -4px);
+    z-index: -1;
+  }
 }
 
 .navigation__list a[aria-current="page"]::after {

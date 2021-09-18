@@ -30,8 +30,12 @@
 }
 
 .splitContent__contentWrapper {
-  padding: block(medium);
+  padding: block(gutter);
   background-color: color(mid);
+
+  @include breakpoint(medium up) {
+    padding: block(medium);
+  }
 
   @include breakpoint(medium only) {
     width: calc((10 / 12) * 100%);
