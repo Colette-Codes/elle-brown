@@ -1,7 +1,7 @@
-<header class="header" role="banner">
+<header class="js-header header" role="banner">
   <div class="header__inner">
     <a class="header__logo" href="/">{{site.meta.title}}.</a>
-    <nav class="navigation" aria-label="Main">
+    <nav class="navigation" aria-label="Main" id="menu">
       <ul class="navigation__list">
         {%- for item in site.header.menu -%}
           {%- if item._type == 'socialLink' %}
@@ -18,5 +18,8 @@
         {%- endfor -%}
       </ul>
     </nav>
+    <button class="js-header-button header__button" aria-expanded="false" aria-controls="menu">
+      <span class="header__icon"></span>
+    </button>
   </div>
 </header>

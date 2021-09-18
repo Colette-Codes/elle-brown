@@ -10,7 +10,6 @@
 }
 
 .footer__nav {
-  display: flex;
   padding-top: block(small);
   padding-bottom: block(small);
   margin-right: -(block(small));
@@ -19,6 +18,20 @@
 
   ul {
     @include inline-list;
+  }
+
+  @include breakpoint(small down) {
+    ul {
+      text-align: center;
+    }
+
+    ul + ul {
+      padding-top: block(gutter);
+    }
+  }
+
+  @include breakpoint(medium up) {
+    display: flex;
   }
 }
 

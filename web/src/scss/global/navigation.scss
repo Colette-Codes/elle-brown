@@ -1,14 +1,20 @@
 .navigation__list {
   @include breakpoint(small down) {
+    @include transition(opacity, transform);
     position: fixed;
-    top: 0;
+    top: 64px;
     right: 0;
     bottom: 0;
-    width: 240px;
+    left: 0;
     background-color: white;
-    box-shadow: 0 0 12px color(dark);
-    transform: translateX(110%);
+    opacity: 0;
+    visibility: hidden;
     z-index: 10;
+
+    .header.is-open & {
+      opacity: 1;
+      visibility: visible;
+    }
   }
 
   @include breakpoint(medium up) {
@@ -23,13 +29,29 @@
   position: relative;
 
   @include breakpoint(small down) {
+    @include transition(opacity, transform);
     padding: block(gutter);
     border-bottom: 1px solid color(mid);
+    opacity: 0;
+    transform: translateY(20px);
 
-    li.navigation-icon & {
-      border-bottom: none;
+    .header.is-open & {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
+}
+
+@for $i from 1 to 10 {
+  $delay: 50ms * $i + 50ms;
+
+  .navigation__list li:nth-child(#{$i}) a {
+    transition-delay: $delay;
+  }
+}
+
+.navigation__list li.navigation__icon a {
+  border-bottom: none;
 }
 
 .navigation__list a::after {

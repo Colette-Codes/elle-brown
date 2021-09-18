@@ -1,6 +1,15 @@
 .header {
   @include gridWidth;
   @include gridPadding;
+
+  @include breakpoint(small down) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: white;
+    z-index: 15;
+  }
 }
 
 .header__inner {
@@ -39,5 +48,62 @@
 
   @include breakpoint(medium up) {
     height: 16px;
+  }
+}
+
+.header__button {
+  color: currentColor;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  @include breakpoint(medium up) {
+    display: none;
+  }
+}
+
+.header__icon,
+.header__icon::before,
+.header__icon::after {
+  @include transition(transform);
+  display: inline-block;
+  width: 26px;
+  height: 4px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  background-color: currentColor;
+  border-radius: 4px;
+  line-height: 1;
+}
+
+.header__icon {
+  @include transition(background);
+  position: relative;
+  margin-left: block(small);
+
+  .header__button[aria-expanded="true"] & {
+    background-color: transparent;
+  }
+}
+
+.header__icon::before,
+.header__icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.header__icon::before {
+  margin-top: -8px;
+  transform: translateY(0) rotate(0);
+
+  .header__button[aria-expanded="true"] & {
+    transform: translateY(8px) rotate(45deg);
+  }
+}
+
+.header__icon::after {
+  .header__button[aria-expanded="true"] & {
+    transform: translateY(-8px) rotate(-45deg);
   }
 }

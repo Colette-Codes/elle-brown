@@ -1,4 +1,5 @@
 const embeds = require("eleventy-plugin-embed-everything")
+const filters = require('./src/filters.js')
 
 module.exports = config => {
   // Tell 11ty to use the .eleventyignore and ignore our .gitignore file
@@ -6,6 +7,7 @@ module.exports = config => {
   // Pass images to dist folder
   config.addPassthroughCopy("src/assets/images")
   config.addPassthroughCopy("src/assets/meta")
+  config.addNunjucksAsyncFilter('jsmin', filters.jsmin)
 
   config.addFilter("debug", function(value) {
     return util.inspect(value, {compact: false})

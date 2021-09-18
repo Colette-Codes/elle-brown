@@ -16,6 +16,10 @@ body {
   color: black;
   font-smooth: always;
 
+  @include breakpoint(small down) {
+    padding-top: 64px;
+  }
+
   @include breakpoint(medium up) {
     font-size: 18px;
   }

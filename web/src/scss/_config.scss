@@ -160,9 +160,13 @@ $colors: (
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 10px;
+    height: 8px;
     background-color: color($color);
     z-index: -1;
+
+    @include breakpoint(medium up) {
+      height: 10px;
+    }
   }
 
   &:hover::after {
