@@ -15,7 +15,7 @@
   status = 301
 
 [[headers]]
-  for = "*"
+  for = "/*"
   [headers.values]
     Basic-Auth = "ellebrown:portfolio"
 
