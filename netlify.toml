@@ -8,3 +8,14 @@
 
 [build.environment]
   NODE_VERSION = "14.16.0" 
+
+[[redirects]]
+  from = "/admin"
+  to = "https://ellebrown.sanity.studio"
+  status = 301
+
+[[headers]]
+  for = "*"
+  [headers.values]
+    Basic-Auth = "ellebrown:portfolio"
+
