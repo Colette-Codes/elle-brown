@@ -1,0 +1,8 @@
+{% extends "layouts/base.html" %} 
+
+{% block content %}
+  {%- if sanityPage.pageBuilder %}
+    {% set pageBuilderContent = sanityPage.pageBuilder %}
+    {% include "partials/components/pageBuilder.html" %}
+  {%- endif %}
+{% endblock %}

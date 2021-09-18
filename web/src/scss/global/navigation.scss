@@ -1,0 +1,43 @@
+.navigation__list {
+  @include inline-list;
+  margin-right: -(block(small));
+  margin-left: -(block(small));
+}
+
+.navigation__list a {
+  display: block;
+  position: relative;
+}
+
+.navigation__list a::after {
+  @include transition(background-color);
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: calc(100% + 8px);
+  height: 10px;
+  transform: translate(-50%, -4px);
+  z-index: -1;
+}
+
+.navigation__list a[aria-current="page"]::after {
+  background-color: color(secondary);
+}
+
+.navigation__list a:hover::after {
+  background-color: color(primary);
+}
+
+.navigation__icon {
+  vertical-align: middle;
+}
+
+.navigation__icon a {
+  line-height: 1;
+}
+
+.navigation__icon svg {
+  width: 20px;
+  height: 20px;
+}

@@ -1,0 +1,90 @@
+html {
+  min-height: 100%;
+  font-size: 100%;
+  font-style: normal;
+  font-weight: 300;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+body {
+  @include montserrat;
+  @include font-smoothing(on);
+  font-size: 16px;
+  color: black;
+  font-smooth: always;
+
+  @include breakpoint(medium up) {
+    font-size: 18px;
+  }
+}
+
+main {
+  padding-bottom: block(xlarge);
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @include montserrat(800);
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+
+    @include breakpoint(medium up) {
+      font-size: 3.25rem;
+    }
+  }
+
+  h2 {
+    font-size: 1.5rem;
+
+    @include breakpoint(medium up) {
+      font-size: 2rem;
+    }
+  }
+
+  p,
+  ul,
+  ol {
+    font-size: 1rem;
+
+    @include breakpoint(medium up) {
+      font-size: 1.125rem;
+    }
+  }
+
+  a:not(.navigation__link) {
+    @include link;
+  }
+
+  ul li {
+    position: relative;
+    padding-left: block(medium);
+  }
+
+  ul li::before {
+    content: "";
+    position: absolute;
+    top: 11px;
+    left: 22px;
+    width: 4px;
+    height: 4px;
+    background-color: currentColor;
+    border-radius: 50%;
+  }
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}

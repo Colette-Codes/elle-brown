@@ -1,0 +1,12 @@
+@mixin section {
+  padding-top: block(large);
+  padding-bottom: block(large);
+}
+
+.section {
+  @include section;
+}
+
+.section__title {
+  margin-bottom: block(medium);
+}

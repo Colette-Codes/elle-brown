@@ -1,0 +1,27 @@
+:root {
+  /* Brand colors */
+  --brand-primary: #4ebbec;
+  --brand-primary--inverted: #000;
+  --brand-secondary: #f7c071;
+  --brand-secondary--inverted: #000;
+
+  /* Typography */
+  /*
+    --font-family-sans-serif: 'Nunito';
+    --font-size-base: 18px;
+    */
+  --text-color: #000;
+
+  /* State colors */
+  --state-success-color: #4eb644;
+  --state-info-color: #56a3d1;
+  --state-warning-color: #9209fc;
+
+  /* Main Navigation */
+  --main-navigation-color: #fff;
+  --main-navigation-color--inverted: #000;
+}
+
+:global(.myComponent-Element--modifier) {
+  border: 1px solid red;
+}

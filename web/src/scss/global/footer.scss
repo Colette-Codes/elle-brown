@@ -1,0 +1,34 @@
+.footer {
+  background-color: color(primary);
+}
+
+.footer__inner {
+  @include gridWidth;
+  @include gridPadding;
+  padding-top: block(gutter);
+  padding-bottom: block(xlarge);
+}
+
+.footer__nav {
+  display: flex;
+  padding-top: block(small);
+  padding-bottom: block(small);
+  margin-right: -(block(small));
+  margin-left: -(block(small));
+  justify-content: space-between;
+
+  ul {
+    @include inline-list;
+  }
+}
+
+.footer__social {
+  padding-top: block(small);
+  padding-bottom: block(small);
+  margin: -block(small);
+  text-align: center;
+
+  li {
+    padding: block(small);
+  }
+}

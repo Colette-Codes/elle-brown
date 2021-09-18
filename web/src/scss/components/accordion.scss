@@ -1,0 +1,96 @@
+.accordion {
+  @include gridWidth;
+  @include gridPadding;
+  @include section;
+  position: relative;
+}
+
+.accordion__item {
+  position: relative;
+  width: 100%;
+  padding-left: block(large);
+
+  input {
+    display: none;
+  }
+}
+
+.accordion__item::before,
+.accordion__item::after {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: 24px;
+}
+
+.accordion__item::before {
+  width: 14px;
+  height: 14px;
+  background-color: color(primary);
+}
+
+.accordion__item:nth-child(odd)::before {
+  background-color: color(secondary);
+}
+
+.accordion__item::after {
+  width: 4px;
+  height: 100%;
+  margin-left: 5px;
+  background-color: currentColor;
+  z-index: -1;
+}
+
+.accordion__item:last-child::after {
+  display: none;
+}
+
+.accordion__heading {
+  position: relative;
+  display: block;
+  padding: block(small);
+  padding-right: block(medium);
+  cursor: pointer;
+}
+
+.accordion__heading::before,
+.accordion__heading::after {
+  content: "";
+  position: absolute;
+  top: 28px;
+  right: block(gutter);
+  width: 16px;
+  height: 2px;
+  background-color: currentColor;
+}
+
+.accordion__heading::before {
+  transform: translateY(-4px) rotate(30deg);
+}
+
+.accordion__heading::after {
+  transform: translateY(3px) rotate(-30deg);
+}
+
+.accordion__heading p {
+  font-size: 24px;
+}
+
+.accordion__content {
+  @include transition(max-height);
+  max-height: 0;
+  overflow: hidden;
+
+  .accordion__item input:checked ~ .accordion__heading ~ & {
+    max-height: 500px !important;
+  }
+}
+
+.accordion__content__inner {
+  padding: block(gutter);
+}
+
+.accordion__content__inner div {
+  padding: block(medium);
+  background-color: color(mid);
+}

@@ -1,0 +1,22 @@
+<header class="header" role="banner">
+  <div class="header__inner">
+    <a class="header__logo" href="/">{{site.meta.title}}.</a>
+    <nav class="navigation" aria-label="Main">
+      <ul class="navigation__list">
+        {%- for item in site.header.menu -%}
+          {%- if item._type == 'socialLink' %}
+          <li class="navigation__icon">
+            <a aria-label="{{item.label}}" href="{{item.url | url }}/">
+              <!-- {% include "partials/icons/social-instagram.svg" %} -->
+            </a>
+          </li>
+          {%- else %}
+          <li>
+            <a href="{{ item.url | url }}" {{ helpers.activePage.getLinkActiveState(item.url, page.url) | safe }}>{{ item.label }}</a>
+          </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </nav>
+  </div>
+</header>

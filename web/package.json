@@ -1,0 +1,31 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eleventy.js",
+  "scripts": {
+    "start": "yarn gulp && concurrently \"yarn gulp watch\" \"yarn eleventy --serve\"",
+    "production": "NODE_ENV=production yarn gulp && NODE_ENV=production yarn eleventy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@11ty/eleventy": "^0.12.1",
+    "@sanity/block-content-to-html": "^2.0.0",
+    "@sanity/block-content-to-markdown": "^0.0.5",
+    "@sanity/client": "^2.18.0",
+    "@sanity/image-url": "^1.0.1",
+    "concurrently": "^6.2.1",
+    "dotenv": "^10.0.0",
+    "eleventy-plugin-embed-everything": "^1.13.3",
+    "groq": "^2.15.0",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-sass": "4.1.0",
+    "gulp-sass-glob": "^1.1.0",
+    "markdown-it": "^12.2.0",
+    "markdown-it-anchor": "^8.3.0",
+    "sass": "^1.39.0"
+  }
+}

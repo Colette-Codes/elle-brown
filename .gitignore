@@ -1,0 +1,24 @@
+### Sanity things ###
+/studio/dist
+/studio/.env*
+!/studio/.env.template
+
+### 11ty things ###
+/web/dist
+/web/src/_includes/css
+
+### Node things ###
+/**/node_modules
+
+### Yarn things ###
+/**/yarn-error.log
+
+### Misc things ###
+.DS_Store
+*.log
+npm-debug.*
+*.scssc
+*.swp
+Thumbs.db
+.sass-cache
+.cache

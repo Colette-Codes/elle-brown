@@ -1,0 +1,100 @@
+$grid-gutter: block(gutter);
+
+.grid {
+  @include gridWidth;
+  @include gridPadding;
+  display: grid;
+  grid-column-gap: $grid-gutter;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+
+  .modernizr-no-cssgrid & {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .modernizr-no-cssgrid.modernizr-no-flexbox {
+    display: block;
+
+    &::before,
+    &::after {
+      content: "";
+      display: table;
+      flex-basis: 0;
+      order: 1;
+    }
+
+    &::after {
+      clear: both;
+    }
+  }
+}
+
+.grid__item {
+  width: auto;
+  grid-column-end: span 12;
+
+  .modernizr-no-cssgrid & {
+    width: 100%;
+    padding-right: $grid-gutter;
+    padding-left: $grid-gutter;
+  }
+
+  .modernizr-no-cssgrid.modernizr-no-flexbox {
+    float: left;
+  }
+}
+
+@each $breakpoint, $size in $breakpoints {
+  @media screen and (min-width: #{$size}) {
+    @for $i from 1 through 12 {
+      // Col width classes
+      .#{$breakpoint}-#{$i} {
+        display: inline-block;
+        width: auto;
+        grid-column-end: span $i;
+
+        .modernizr-no-cssgrid & {
+          width: map-get($grid-fallback-widths, $i);
+        }
+      }
+
+      // Offset classes
+      .#{$breakpoint}-offset-#{$i} {
+        grid-column-start: $i + 1;
+
+        .modernizr-no-cssgrid & {
+          margin-left: map-get($grid-fallback-widths, $i);
+        }
+      }
+    }
+  }
+}
+
+.grid__inner {
+  padding-right: $grid-gutter;
+  padding-left: $grid-gutter;
+}
+
+// Grid helper classes
+.grid--unpadded {
+  grid-column-gap: 0;
+  padding-right: 0;
+  padding-left: 0;
+
+  > .grid__item {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.grid--no-gap {
+  grid-column-gap: 0;
+}
+
+.grid--flush {
+  padding-right: 0;
+  padding-left: 0;
+  margin-right: -($grid-gutter);
+  margin-left: -($grid-gutter);
+}

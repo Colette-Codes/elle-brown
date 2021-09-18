@@ -1,0 +1,7 @@
+@mixin inline-list($gap: block(small)) {
+  li {
+    display: inline-block;
+    padding-right: $gap;
+    padding-left: $gap;
+  }
+}

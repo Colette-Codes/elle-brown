@@ -1,0 +1,9 @@
+.portableText {
+  > * {
+    margin-bottom: block(medium);
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}

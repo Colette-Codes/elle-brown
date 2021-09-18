@@ -1,0 +1,170 @@
+// Breakpoints
+//------------------------------------------------------------------------------
+
+$breakpoints: (
+  small: 0,
+  medium: 640px,
+  large: 1024px,
+  xlarge: 1200px,
+  xxlarge: 1440px,
+);
+
+@mixin breakpoint($breakpoint) {
+  $bp: nth($breakpoint, 1);
+  $max: 0;
+  $dir: nth($breakpoint, 2);
+  $query: "only screen";
+
+  @if map-has-key($breakpoints, $bp) {
+    $min: map-get($breakpoints, $bp);
+    $nextIndex: index($breakpoints, $bp $min) + 1;
+    $next: if(
+      $nextIndex > length($breakpoints),
+      null,
+      nth($breakpoints, $nextIndex)
+    );
+
+    @if $dir == "only" {
+      $query: $query + " and (min-width: #{$min})";
+
+      @if $next == null {
+        $max: null;
+      } @else {
+        $max: nth($next, 2) - (1 * 0.0625);
+        $query: $query + " and (max-width: #{$max})";
+      }
+    } @else if $dir == "up" {
+      $query: $query + " and (min-width: #{$min})";
+    } @else if $dir == "down" {
+      $max: nth($next, 2) - (1 * 0.0625);
+      $query: $query + " and (max-width: #{$max})";
+    }
+
+    @media #{$query} {
+      @content;
+    }
+  }
+}
+
+// Grid
+//------------------------------------------------------------------------------
+$maxWidth: 1200px;
+$gridGutter: 16px;
+
+@mixin gridWidth {
+  max-width: $maxWidth;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@mixin gridPadding {
+  padding-right: $gridGutter;
+  padding-left: $gridGutter;
+
+  @include breakpoint(large up) {
+    padding-right: $gridGutter * 2;
+    padding-left: $gridGutter * 2;
+  }
+}
+
+// Grid Widths
+//------------------------------------------------------------------------------
+
+$grid-fallback-widths: (
+  1: 8.3333%,
+  2: 16.666%,
+  3: 25%,
+  4: 33.3333%,
+  5: 41.6666%,
+  6: 50%,
+  7: 58.3333%,
+  8: 66.6666%,
+  9: 75%,
+  10: 83.3333%,
+  11: 91.6666%,
+  12: 100%,
+);
+
+// Fonts
+//------------------------------------------------------------------------------
+
+@mixin font-family($font, $fallbacks) {
+  font-family: $font, $fallbacks;
+
+  .fonts-loading & {
+    font-family: $fallbacks;
+  }
+}
+
+$fallbacks: Helvetica Neue, Helvetica, Arial, sans-serif;
+
+@mixin montserrat($weight: 400, $style: normal) {
+  @include font-family("Montserrat", $fallbacks);
+  font-style: $style;
+  font-weight: $weight;
+}
+
+@mixin font-smoothing($value: on) {
+  @if $value == on {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+  } @else {
+    -moz-osx-font-smoothing: auto;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}
+
+// Blocks
+//------------------------------------------------------------------------------
+
+$blocks: (
+  small: 8px,
+  medium: 32px,
+  large: 48px,
+  xlarge: 64px,
+  gutter: 16px,
+);
+
+@function block($size) {
+  @return map-get($blocks, $size);
+}
+
+// Colors
+//------------------------------------------------------------------------------
+
+$colors: (
+  //brand
+  primary: #4ebbec,
+  secondary: #f7c071,
+  // tones
+  light: #fbfbfb,
+  mid: #e3e0e0
+);
+
+@function color($color) {
+  @return map-get($colors, $color);
+}
+
+// Theme
+//------------------------------------------------------------------------------
+
+@mixin link($color: "secondary", $hover: "primary") {
+  position: relative;
+  z-index: 1;
+
+  &::after {
+    @include transition(background-color);
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 10px;
+    background-color: color($color);
+    z-index: -1;
+  }
+
+  &:hover::after {
+    background-color: color($hover);
+  }
+}

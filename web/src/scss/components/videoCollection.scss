@@ -1,0 +1,23 @@
+.videoCollection {
+  display: flex;
+  margin: -(block(small));
+  flex-wrap: wrap;
+
+  @include breakpoint(medium up) {
+    margin: -(block(gutter));
+  }
+}
+
+.videoCollection__video {
+  width: 100%;
+  padding: block(small);
+
+  &:only-child {
+    width: 100%;
+  }
+
+  @include breakpoint(medium up) {
+    width: 50%;
+    padding: block(gutter);
+  }
+}

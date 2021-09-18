@@ -1,0 +1,75 @@
+.contactForm {
+  display: grid;
+  padding: block(medium);
+  background-color: color(mid);
+  // grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: block(medium);
+
+  @include breakpoint(medium up) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.contactForm__form {
+  input:not([type="checkbox"]),
+  textarea {
+    display: block;
+    width: 100%;
+    padding: 12px block(gutter);
+    margin-bottom: block(medium);
+    border: none;
+  }
+
+  @include breakpoint(small down) {
+    padding-top: block(medium);
+  }
+}
+
+.formField--checkbox {
+  display: flex;
+  font-size: 0.875rem;
+
+  input {
+    appearance: none;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    margin-right: block(gutter);
+    margin-left: 0;
+    background-color: white;
+    border: none;
+    border-radius: 0;
+    flex-shrink: 0;
+  }
+
+  input::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 20px;
+    height: 10px;
+    margin: 5px 0;
+    border: 4px solid transparent;
+    border-top: none;
+    border-right: none;
+    transform: translateX(-50%) rotate(-45deg);
+  }
+
+  input:checked::after {
+    border-color: black;
+  }
+}
+
+.formField--button {
+  padding-top: block(medium);
+  text-align: right;
+
+  button {
+    display: inline-block;
+    padding: block(small) block(gutter);
+    color: black;
+    background-color: color(secondary);
+    border: none;
+  }
+}

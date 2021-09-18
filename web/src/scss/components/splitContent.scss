@@ -1,0 +1,90 @@
+.splitContent {
+  @include gridWidth;
+  @include gridPadding;
+  @include section;
+  position: relative;
+}
+
+.splitContent__inner {
+  position: relative;
+
+  @include breakpoint(large up) {
+    .splitContent--offset & {
+      padding-top: block(xlarge);
+    }
+
+    .splitContent--center & {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.splitContent__contentWrapper,
+.splitContent__image {
+  width: 100%;
+
+  @include breakpoint(medium up) {
+    width: calc((8 / 12) * 100%);
+  }
+}
+
+.splitContent__contentWrapper {
+  padding: block(medium);
+  background-color: color(mid);
+
+  @include breakpoint(medium only) {
+    width: calc((10 / 12) * 100%);
+    padding-top: 160px;
+    margin-top: -108px;
+  }
+
+  @include breakpoint(large up) {
+    padding: block(large);
+
+    .splitContent--offset & {
+      width: calc((9 / 12) * 100%);
+    }
+
+    .splitContent--center & {
+      width: 50%;
+    }
+  }
+}
+
+.splitContent__content {
+  @include breakpoint(large up) {
+    .splitContent--offset & {
+      padding-right: calc((4 / 9) * 100% + #{block(large)});
+    }
+  }
+}
+
+.splitContent__image {
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @include breakpoint(medium down) {
+    margin-left: auto;
+  }
+
+  .splitContent--center &,
+  .splitContent--offset & {
+    @include breakpoint(large up) {
+      width: calc((7 / 12) * 100%);
+    }
+  }
+
+  .splitContent--offset & {
+    height: calc(100% - #{block(xlarge)});
+
+    @include breakpoint(large up) {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+}
