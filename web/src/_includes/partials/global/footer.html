@@ -3,40 +3,31 @@
       <nav class="footer__nav">
         <ul>
           <li>&copy; {{ helpers.date.currentYear() }}</li>
-          <li>
-            <a href="">Privacy Policy</a>
-          </li>
-          <li>
-            <a href="">Terms of Use</a>
-          </li>
-          <li>
-            <a href="">Cookie Policy</a>
-          </li>
+          {%- for item in site.footer.menuLeft -%}
+            <li>
+              <a href="{{ item.url | url }}">{{ item.label }}</a>
+            </li>
+          {%- endfor -%}
         </ul>
         <ul>
-          <li>
-            <a href="">About</a>
-          </li>
-          <li>
-            <a href="">Film</a>
-          </li>
-          <li>
-            <a href="">Video</a>
-          </li>
-          <li>
-            <a href="">Photo</a>
-          </li>
-          <li>
-            <a href="">Contact</a>
-          </li>
+          {%- for item in site.footer.menuRight -%}
+            <li>
+              <a href="{{ item.url | url }}">{{ item.label }}</a>
+            </li>
+          {%- endfor -%}
         </ul>
       </nav>
       <div class="footer__social">
         <ul>
+          {%- for item in site.footer.menuSocial -%}
           <li>
-            <a href="">
-              {% include "partials/icons/social-instagram.svg" %}
-            </a>
+            <li>
+              <a aria-label="{{item.label}}" href="{{item.url | url }}/">
+                {% set platform = item.label %}
+                {% include "partials/components/socialIcon.html" %}
+              </a>
+            </li>
+            {%- endfor -%}
           </li>
         </ul>
       </div>

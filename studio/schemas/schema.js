@@ -5,6 +5,7 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 import globalHeader from './documents/globalHeader'
+import globalFooter from './documents/globalFooter'
 import globalSEO from './documents/globalSEO'
 import social from './documents/social'
 import page from './documents/page'
@@ -33,6 +34,7 @@ export default createSchema({
   types: schemaTypes.concat([
     /* documents */
     globalHeader,
+    globalFooter,
     globalSEO,
     social,
     page,

@@ -7,8 +7,12 @@ const getSiteData = async () => {
     "header": *[_type == 'globalHeader'][0].menu[] {
       "link": select(
         _type == 'menuItem' => @,
-        _type == 'reference' => @->
+        _type == 'socialLink' => @->
       ),
+    },
+    "footer": *[_type == 'globalFooter'][0] {
+      ...,
+      menuSocial[]->
     }
   }`
   // eslint-disable-next-line no-console

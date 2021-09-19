@@ -4,7 +4,7 @@ import { CgProfile } from 'react-icons/cg'
 
 // We filter document types defined in structure to prevent
 // them from being listed twice
-const hiddenDocTypes = (listItem) => !['globalSEO', 'globalHeader', 'social'].includes(listItem.getId())
+const hiddenDocTypes = (listItem) => !['globalSEO', 'globalHeader', 'globalFooter', 'social'].includes(listItem.getId())
 
 export default () =>
   S.list()
@@ -27,12 +27,12 @@ export default () =>
                 .child(
                   S.document().id('globalHeader').title('Header').schemaType('globalHeader').documentId('globalHeader')
                 ),
-              //   S.listItem()
-              //     .title('Footer')
-              //     .icon(BiDockBottom)
-              //     .child(
-              //       S.document().id('globalFooter').title('Footer').schemaType('globalFooter').documentId('globalFooter')
-              //     ),
+              S.listItem()
+                .title('Footer')
+                .icon(BiDockBottom)
+                .child(
+                  S.document().id('globalFooter').title('Footer').schemaType('globalFooter').documentId('globalFooter')
+                ),
               S.listItem().title('Social Media').icon(CgProfile).child(S.documentTypeList('social')),
             ])
         ),
