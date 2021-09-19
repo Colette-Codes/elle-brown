@@ -3,15 +3,15 @@
     <div class="contactForm__content">
       {{ helpers.blocksToHtml.generateHtml(block.content) | safe }}
     </div>
-    <form class="contactForm__form" method="post" data-netlify="true" netlify-honeypot="bot-field">
+    <form class="contactForm__form" method="post" action="/" data-netlify="true" netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="contact" />
       <input name="bot-field" hidden />
       <input type="text" id="name" name="name" placeholder="Name" required />
       <input type="email" id="email" name="email" placeholder="Email" pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$" required />
       <textarea id="message" id="message" name="message" cols="30" rows="10" placeholder="Message" required></textarea>
       <div class="formField--checkbox">
-        <input type="checkbox" />
-        <label>
+        <input type="checkbox" id="privacy" name="privacy" required />
+        <label for="privacy">
           I agree that the data I’m submitting will be stored for the purposes of communication with Elle Brown and will not be shared with any third parties in accordance with the Privacy Policy.
         </label>
       </div>
