@@ -62,7 +62,7 @@ main {
     }
   }
 
-  a:not(.navigation__link) {
+  a:not([class]) {
     @include link;
   }
 

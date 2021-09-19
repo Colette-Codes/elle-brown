@@ -42,14 +42,14 @@
             <h2 class="section__title">{{ block.title }}</h2>
           </div>
         {%- endif %}
-        <div class="grid__item gallery gallery--{{block.layout}}">
+        <div class="js-lightbox grid__item gallery gallery--{{block.layout}}" data-lightbox="{{ block._key }}">
           {%- if block.images %}
             {%- for item in block.images %}
-              <div class="gallery__item">
+              <a data-fslightbox="{{ block._key }}" class="gallery__item" href="{{ helpers.image.urlFor(item) }}">
                 <figure>
                   {{ helpers.image.imageWithSrcset(item) | safe }}
                 </figure>
-              </div>
+              </a>
             {%- endfor %}
           {% endif %}
         </div>

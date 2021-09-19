@@ -19,6 +19,7 @@
     "concurrently": "^6.2.1",
     "dotenv": "^10.0.0",
     "eleventy-plugin-embed-everything": "^1.13.3",
+    "fslightbox": "^3.3.0-2",
     "groq": "^2.15.0",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",

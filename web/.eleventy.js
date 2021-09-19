@@ -7,12 +7,12 @@ module.exports = config => {
   // Pass images to dist folder
   config.addPassthroughCopy("src/assets/images")
   config.addPassthroughCopy("src/assets/meta")
+  // Filter to minimise inline js
   config.addNunjucksAsyncFilter('jsmin', filters.jsmin)
 
   config.addFilter("debug", function(value) {
     return util.inspect(value, {compact: false})
    })
-
 
   let markdownIt = require("markdown-it");
   let markdownItAnchor = require("markdown-it-anchor");
@@ -36,6 +36,7 @@ module.exports = config => {
     return md.render(value)
   })
 
+  // Add plugins
   config.addPlugin(embeds)
 
   return {

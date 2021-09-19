@@ -21,9 +21,6 @@
       {% block content %}{% endblock %}
     </main>
     {% include "partials/global/footer.html" %}
-    {% set js %}
-      {% include "js/app.js" %}
-    {% endset %}
-    <script>{{ js | jsmin | safe }}</script>
+    <script src="/js/app.js" type="module"></script>
   </body>
 </html>

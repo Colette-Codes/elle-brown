@@ -1,0 +1,9 @@
+---
+permalink: js/app.js
+eleventyExcludeFromCollections: true
+---
+{% set js %}
+  {% include "../../node_modules/fslightbox/index.js" %}
+  {% include "js/header.js" %}
+{% endset %}
+{{ js | jsmin | safe }}
