@@ -6,6 +6,8 @@
 ### 11ty things ###
 /web/dist
 /web/src/_includes/css
+/web/netlify/functions/preview/**
+!/web/netlify/functions/preview/index.js
 
 ### Node things ###
 /**/node_modules

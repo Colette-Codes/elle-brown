@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@11ty/eleventy": "^0.12.1",
+    "@netlify/functions": "^0.7.2",
     "@sanity/block-content-to-html": "^2.0.0",
     "@sanity/block-content-to-markdown": "^0.0.5",
     "@sanity/client": "^2.18.0",

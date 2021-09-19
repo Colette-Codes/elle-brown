@@ -1,3 +1,4 @@
+// const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy")
 const embeds = require("eleventy-plugin-embed-everything")
 const filters = require('./src/filters.js')
 
@@ -38,6 +39,11 @@ module.exports = config => {
 
   // Add plugins
   config.addPlugin(embeds)
+  // Set up a serverless function for preview
+  // config.addPlugin(EleventyServerlessBundlerPlugin, {
+  //   name: "preview", // The serverless function name from your permalink object
+  //   functionsDir: "./netlify/functions/"
+  // })
 
   return {
     markdownTemplateEngine: 'njk',
