@@ -1,6 +1,13 @@
-{% set icon = '' %}
-
-{% switch icon %}
-  {% case 'instagram' %}
-    {% include "partials/icons/social-instagram.svg" %}
-{% endswitch %}
+{% if platform === 'instagram' %}
+  {% include "partials/icons/social-instagram.svg" %}
+{% elseif platform === 'facebook' %}
+  {% include "partials/icons/social-facebook.svg" %}
+{% elseif platform === 'twitter' %}
+  {% include "partials/icons/social-twitter.svg" %}
+{% elseif platform === 'linkedin' %}
+  {% include "partials/icons/social-linkedin.svg" %}
+{% elseif platform === 'vimeo' %}
+  {% include "partials/icons/social-vimeo.svg" %}
+{% elseif platform === 'youtube' %}
+  {% include "partials/icons/social-youtube.svg" %}
+{%- endif -%}

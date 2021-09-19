@@ -3,17 +3,20 @@
     <a class="header__logo" href="/">{{site.meta.title}}.</a>
     <nav class="navigation" aria-label="Main" id="menu">
       <ul class="navigation__list">
-        {%- for item in site.header.menu -%}
-          {%- if item._type == 'socialLink' %}
-          <li class="navigation__icon">
-            <a aria-label="{{item.label}}" href="{{item.url | url }}/">
-              <!-- {% include "partials/icons/social-instagram.svg" %} -->
-            </a>
-          </li>
+        {%- for item in site.header -%}
+          {%- if item.link._type === 'social' -%}
+            {% set link = item.link %}
+            <li class="navigation__icon">
+              <a aria-label="{{link.label}}" href="{{link.url | url }}/">
+                {% set platform = link.label %}
+                {% include "partials/components/socialIcon.html" %}
+              </a>
+            </li>
           {%- else %}
-          <li>
-            <a href="{{ item.url | url }}" {{ helpers.activePage.getLinkActiveState(item.url, page.url) | safe }}>{{ item.label }}</a>
-          </li>
+            {% set link = item.link %}
+            <li>
+              <a href="{{ link.url | url }}" {{ helpers.activePage.getLinkActiveState(link.url, page.url) | safe }}>{{ link.label }}</a>
+            </li>
           {%- endif -%}
         {%- endfor -%}
       </ul>

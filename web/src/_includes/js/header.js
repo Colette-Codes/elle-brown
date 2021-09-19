@@ -1,6 +1,6 @@
 const $button = document.getElementsByClassName('js-header-button')[0]
 
-const toggleMenu = function() {
+const toggleMenu = function () {
   const $header = document.getElementsByClassName('js-header')[0]
   const isOpen = $header.classList.contains('is-open')
 
