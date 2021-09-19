@@ -1,8 +1,8 @@
 ul.socialList {
   display: flex;
   padding-top: block(medium);
-  margin-right: -4px;
-  margin-left: -4px;
+  margin-right: -(block(small));
+  margin-left: -(block(small));
 
   li {
     padding-left: 0;
@@ -16,11 +16,18 @@ ul.socialList {
   a {
     @include transition(color);
     display: block;
-    padding-right: 4px;
-    padding-left: 4px;
+    padding-right: block(small);
+    padding-left: block(small);
+    cursor: pointer;
   }
 
-  a:hover {
-    color: color(primary);
+  img {
+    display: block;
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+
+    a:hover & {
+    }
   }
 }

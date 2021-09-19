@@ -1,5 +1,5 @@
 const blocksToHtml = require('@sanity/block-content-to-html')
-const imageUrl = require('./imageUrl')
+const getSocialIcon = require('./getSocialIcon')
 
 const { h } = blocksToHtml
 
@@ -9,7 +9,9 @@ module.exports = {
     undefined: () => null,
     socialSnackbar: ({ node }) =>
       h('ul.socialList', [
-        node.socialLinks.map((link) => h('li', [h('a', { href: link.url, 'aria-label': link.label }, link.label)])),
+        node.socialLinks.map((link) =>
+          h('li', [h('a', { href: link.url, 'aria-label': link.label }, { innerHTML: getSocialIcon(link.label) })])
+        ),
       ]),
   },
 }

@@ -6,4 +6,12 @@
   > *:last-child {
     margin-bottom: 0;
   }
+
+  a:nth-child(even)::after {
+    background-color: color(primary);
+  }
+
+  a:nth-child(even):hover::after {
+    background-color: color(secondary);
+  }
 }
