@@ -1,0 +1,16 @@
+<section class="grid section">
+  {%- if block.title %}
+    <div class="grid__item">
+      <h2 class="section__title">{{ block.title }}</h2>
+    </div>
+  {%- endif %}
+  <div class="grid__item videoCollection">
+    {%- if block.urls %}
+      {%- for url in block.urls %}
+        <div class="videoCollection__video">
+          {{ url | markdownify | safe }}
+        </div>
+      {%- endfor %}
+    {%- endif %}
+  </div>
+</section>

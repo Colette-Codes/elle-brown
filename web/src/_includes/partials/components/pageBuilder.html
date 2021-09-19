@@ -1,123 +1,16 @@
 {%- for block in pageBuilderContent %}
-  {% switch block._type %}
-    {% case 'pageBuilderSplitContent' %}
-      <section class="splitContent splitContent--{{block.layout}}">
-        {%- if block.title %}
-          <div class="section__title">
-            <h2>{{ block.title }}</h2>
-          </div>
-        {%- endif %}
-        <div class="splitContent__inner">
-          <div class="splitContent__image">
-            {{ helpers.image.imageWithSrcset(block.image) | safe }}
-          </div>
-          <div class="splitContent__contentWrapper">
-            <div class="splitContent__content">
-              {{ helpers.blocksToHtml.generateHtml(block.content) | safe }}
-            </div>
-          </div>
-        </div>
-      </section>
-    {% case 'pageBuilderVideoCollection' %}
-      <section class="grid section">
-        {%- if block.title %}
-          <div class="grid__item">
-            <h2 class="section__title">{{ block.title }}</h2>
-          </div>
-        {%- endif %}
-        <div class="grid__item videoCollection">
-          {%- if block.urls %}
-            {%- for url in block.urls %}
-              <div class="videoCollection__video">
-                {{ url | markdownify | safe }}
-              </div>
-            {%- endfor %}
-          {%- endif %}
-        </div>
-      </section>
-    {% case 'pageBuilderImageGallery' %}
-      <section class="grid section">
-        {%- if block.title %}
-          <div class="grid__item">
-            <h2 class="section__title">{{ block.title }}</h2>
-          </div>
-        {%- endif %}
-        <div class="js-lightbox grid__item gallery gallery--{{block.layout}}" data-lightbox="{{ block._key }}">
-          {%- if block.images %}
-            {%- for item in block.images %}
-              <a data-fslightbox="{{ block._key }}" class="gallery__item" href="{{ helpers.image.urlFor(item) }}">
-                <figure>
-                  {{ helpers.image.imageWithSrcset(item) | safe }}
-                </figure>
-              </a>
-            {%- endfor %}
-          {% endif %}
-        </div>
-      </section>
-    {% case 'pageBuilderAccordion' %}
-      <section class="accordion">
-        {%- if block.title %}
-          <div class="section__title">
-            <h2>{{ block.title }}</h2>
-          </div>
-        {%- endif %}
-        <div>
-          {%- for item in block.accordionItems %}
-            <div class="accordion__item">
-              <input
-                id="{{ item._key }}_input"
-                type="checkbox"
-                name="{{ item._key }}_input"
-              />
-              <label 
-                id="{{ item._key }}"
-                for="{{ item._key }}_input"
-                class="accordion__heading"
-                aria-expanded="false"
-                aria-controls="{{item._key}}_content"
-                tabIndex="0"
-              >
-                {{ helpers.blocksToHtml.generateHtml(item.heading) | safe }}
-                <span>{{ item.subheading }}</span>
-              </label>
-              <div
-                id="{{ item._key }}_content"
-                class="accordion__content"
-                role="region"
-                aria-labelledby="{{ item._key }}"
-                aria-hidden="true"
-              >
-                <div class="accordion__content__inner">
-                  <div class="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          {%- endfor %}
-        </div>
-      </section>
-    {% case 'pageBuilderContactForm' %}
-      <section class="grid section">
-        <div class="grid__item contactForm">
-          <div class="contactForm__content">
-            {{ helpers.blocksToHtml.generateHtml(block.content) | safe }}
-          </div>
-          <form class="contactForm__form">
-            <input type="text" placeholder="Name" required/>
-            <input type="email" placeholder="Email" required/>
-            <textarea id="message" name="message" cols="30" rows="10" placeholder="Message" required></textarea>
-            <div class="formField--checkbox">
-              <input type="checkbox" />
-              <label>
-                I agree that the data I’m submitting will be stored for the purposes of communication with Elle Brown and will not be shared with any third parties in accordance with the Privacy Policy.
-              </label>
-            </div>
-            <div class="formField--button">
-              <button type="submit">Send Message</button>
-            </div>
-          </form>
-        </div>
-      </section>
-  {% endswitch %}
+  {%- if block._type === 'pageBuilderFullwidthContent' -%}
+    {% include "partials/components/pageBuilderFullwidthContent.html" %}
+  {%- elseif block._type === 'pageBuilderSplitContent' -%}
+    {% include "partials/components/pageBuilderSplitContent.html" %}
+  {% elseif block._type === 'pageBuilderVideoCollection' %}
+    {% include "partials/components/pageBuilderVideoCollection.html" %}
+  {% elseif block._type === 'pageBuilderImageGallery' %}
+    {% include "partials/components/pageBuilderImageGallery.html" %}
+  {% elseif block._type === 'pageBuilderAccordion' %}
+    {% include "partials/components/pageBuilderAccordion.html" %}
+  {% elseif block._type === 'pageBuilderContactForm' %}
+    {% include "partials/components/pageBuilderContactForm.html" %}
+  {%- endif -%}
 {%- endfor %}
 

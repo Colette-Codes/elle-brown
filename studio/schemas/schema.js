@@ -10,6 +10,7 @@ import globalSEO from './documents/globalSEO'
 import social from './documents/social'
 import page from './documents/page'
 import pageBuilder from './objects/pageBuilder'
+import pageBuilderFullwidthContent from './objects/pageBuilderFullwidthContent'
 import pageBuilderSplitContent from './objects/pageBuilderSplitContent'
 import pageBuilderVideoCollection from './objects/pageBuilderVideoCollection'
 import portableText from './objects/portableText'
@@ -41,6 +42,7 @@ export default createSchema({
 
     /* objects */
     pageBuilder,
+    pageBuilderFullwidthContent,
     pageBuilderSplitContent,
     pageBuilderVideoCollection,
     pageBuilderImageGallery,

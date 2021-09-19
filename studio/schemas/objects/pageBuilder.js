@@ -4,6 +4,11 @@ export default {
   type: 'array',
   of: [
     {
+      title: 'Fullwidth Content',
+      name: 'pageBuilderFullwidthContent',
+      type: 'pageBuilderFullwidthContent',
+    },
+    {
       title: 'Split Content',
       name: 'pageBuilderSplitContent',
       type: 'pageBuilderSplitContent',

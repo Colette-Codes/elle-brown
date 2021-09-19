@@ -1,0 +1,17 @@
+<section class="splitContent splitContent--{{block.layout}}">
+  {%- if block.title %}
+    <div class="section__title">
+      <h2>{{ block.title }}</h2>
+    </div>
+  {%- endif %}
+  <div class="splitContent__inner">
+    <div class="splitContent__image">
+      {{ helpers.image.imageWithSrcset(block.image) | safe }}
+    </div>
+    <div class="splitContent__contentWrapper">
+      <div class="splitContent__content">
+        {{ helpers.blocksToHtml.generateHtml(block.content) | safe }}
+      </div>
+    </div>
+  </div>
+</section>

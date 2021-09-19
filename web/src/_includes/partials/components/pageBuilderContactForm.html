@@ -1,0 +1,21 @@
+<section class="grid section">
+  <div class="grid__item contactForm">
+    <div class="contactForm__content">
+      {{ helpers.blocksToHtml.generateHtml(block.content) | safe }}
+    </div>
+    <form class="contactForm__form">
+      <input type="text" placeholder="Name" required/>
+      <input type="email" placeholder="Email" required/>
+      <textarea id="message" name="message" cols="30" rows="10" placeholder="Message" required></textarea>
+      <div class="formField--checkbox">
+        <input type="checkbox" />
+        <label>
+          I agree that the data I’m submitting will be stored for the purposes of communication with Elle Brown and will not be shared with any third parties in accordance with the Privacy Policy.
+        </label>
+      </div>
+      <div class="formField--button">
+        <button type="submit">Send Message</button>
+      </div>
+    </form>
+  </div>
+</section>
