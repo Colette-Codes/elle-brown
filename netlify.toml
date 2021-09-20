@@ -1,7 +1,6 @@
 [build]
   base = "web"
   command = "yarn production"
-  functions = "netlify/functions"
   publish = "dist"
 
 [functions]
