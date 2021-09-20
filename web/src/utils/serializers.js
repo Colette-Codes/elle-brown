@@ -10,7 +10,14 @@ module.exports = {
     socialSnackbar: ({ node }) =>
       h('ul.socialList', [
         node.socialLinks.map((link) =>
-          h('li', [h('a', { href: link.url, 'aria-label': link.label }, { innerHTML: getSocialIcon(link.label) })])
+          h('li', [
+            h('a', {
+              href: link.url,
+              'aria-label': link.label,
+              target: '_blank',
+              innerHTML: getSocialIcon(link.label),
+            }),
+          ])
         ),
       ]),
   },
