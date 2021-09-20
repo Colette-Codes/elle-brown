@@ -4,5 +4,7 @@ pagination:
   data: sanityPages
   size: 1
   alias: sanityPage
-permalink: /{{ sanityPage.slug.current | slug }}/
+permalink:
+	build: /{{ sanityPage.slug.current | slug }}/
+	dynamic: /preview/{{ sanityPage.slug.current | slug }}/
 ---
