@@ -14,7 +14,8 @@
     "@sanity/default-login",
     "@sanity/desk-tool",
     "@sanity/vision",
-    "eleventy-build"
+    "eleventy-build",
+    "media"
   ],
   "env": {
     "development": {
@@ -39,6 +40,10 @@
     {
       "implements": "part:@sanity/base/brand-logo",
       "path": "./assets/logo.js"
+    },
+    {
+      "implements": "part:@sanity/form-builder/input/image/asset-sources",
+      "path": "./parts/assetSources.js"
     }
   ]
 }
