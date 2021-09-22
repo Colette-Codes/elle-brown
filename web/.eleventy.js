@@ -43,7 +43,8 @@ module.exports = config => {
   // Set up a serverless function for preview
   config.addPlugin(EleventyServerlessBundlerPlugin, {
     name: "preview", // The serverless function name from your permalink object
-    functionsDir: "./netlify/functions/"
+    functionsDir: "./netlify/functions/",
+    input: 'src',
   })
 
   return {
