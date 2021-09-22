@@ -6,6 +6,7 @@ require('./eleventy-bundler-modules.js')
 
 async function handler(event) {
   const elev = new EleventyServerless('preview', {
+    inputDir: 'src',
     path: event.path,
     query: event.queryStringParameters,
     functionsDir: './netlify/functions/',
