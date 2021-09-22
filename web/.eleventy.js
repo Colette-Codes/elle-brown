@@ -41,11 +41,11 @@ module.exports = config => {
   // Add plugins
   config.addPlugin(embeds)
   // Set up a serverless function for preview
-  config.addPlugin(EleventyServerlessBundlerPlugin, {
-    name: "preview", // The serverless function name from your permalink object
-    functionsDir: "./netlify/functions/",
-    input: 'src',
-  })
+  // config.addPlugin(EleventyServerlessBundlerPlugin, {
+  //   name: "preview", // The serverless function name from your permalink object
+  //   functionsDir: "./netlify/functions/",
+  //   input: 'src',
+  // })
 
   return {
     markdownTemplateEngine: 'njk',
