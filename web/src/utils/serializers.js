@@ -2,9 +2,13 @@ const blocksToHtml = require('@sanity/block-content-to-html')
 const getSocialIcon = require('./getSocialIcon')
 
 const { h } = blocksToHtml
+const target = { target: '_blank', rel: 'nofollow noreferrer noopener' }
 
 // Learn more on https://www.sanity.io/guides/introduction-to-portable-text
 module.exports = {
+  marks: {
+    link: ({ children, mark }) => h('a', mark.newTab ? { href: mark.href, ...target } : { href: mark.href }, children),
+  },
   types: {
     undefined: () => null,
     socialSnackbar: ({ node }) =>
