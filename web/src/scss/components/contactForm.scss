@@ -66,10 +66,16 @@
   text-align: right;
 
   button {
+    @include transition(background-color);
     display: inline-block;
     padding: block(small) block(gutter);
     color: black;
     background-color: color(secondary);
     border: none;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: color(primary);
   }
 }
