@@ -4,7 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>{{ title }}</title>
+    {% set metaTitle = [sanityPage.title, " | ", site.meta.titleSection, " | ", site.meta.title] | join() %}
+    <title>{{ sanityPage.seo.metaTitle or metaTitle }}</title>
+    <meta name="og:title" property="og:title" content="{{ sanityPage.title }}" />
+    <meta property="og:type" content="website" />
+    {% if sanityPage.seo.metaTitle %}
+      <meta name="description" content="{{ sanityPage.seo.metaTitle }}">
+      <meta name="og:description" property="og:description" content="{{ sanityPage.seo.metaTitle }}" />
+      <meta name="twitter:description" content="{{ sanityPage.seo.metaTitle }}" />
+    {%- endif %}
+    <meta property="og:site_name" content="{{ site.meta.title }}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ sanityPage.seo.metaTitle or metaTitle }}" />
+    {% set ogImg = sanityPage.seo.image or site.meta.ogImage %}
+    <meta property="og:image" content="{{ helpers.image.urlFor(ogImg) }}" />
+    <meta name="twitter:image" content="{{ helpers.image.urlFor(ogImg) }}" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/meta/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/meta//favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/meta//favicon-16x16.png">
