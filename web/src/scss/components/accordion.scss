@@ -115,10 +115,18 @@
 }
 
 .accordion__content__inner {
-  padding: block(gutter);
+  padding: block(small);
+
+  @include breakpoint(medium up) {
+    padding: block(gutter);
+  }
 }
 
 .accordion__content__inner div {
-  padding: block(medium);
+  padding: block(gutter);
   background-color: color(mid);
+
+  @include breakpoint(medium up) {
+    padding: block(medium);
+  }
 }
