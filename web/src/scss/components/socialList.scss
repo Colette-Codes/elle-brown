@@ -23,11 +23,8 @@ ul.socialList {
 
   img {
     display: block;
-    width: 24px;
+    width: auto;
     height: 24px;
     object-fit: contain;
-
-    a:hover & {
-    }
   }
 }
