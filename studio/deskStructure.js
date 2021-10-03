@@ -1,10 +1,12 @@
 import S from '@sanity/desk-tool/structure-builder'
 import { BiSlider, BiDockTop, BiDockBottom, BiSearch } from 'react-icons/bi'
 import { CgProfile } from 'react-icons/cg'
+import { BsCode } from 'react-icons/bs'
 
 // We filter document types defined in structure to prevent
 // them from being listed twice
-const hiddenDocTypes = (listItem) => !['globalSEO', 'globalHeader', 'globalFooter', 'social'].includes(listItem.getId())
+const hiddenDocTypes = (listItem) =>
+  !['globalSEO', 'globalHeader', 'globalFooter', 'social', 'scripts'].includes(listItem.getId())
 
 export default () =>
   S.list()
@@ -34,6 +36,7 @@ export default () =>
                   S.document().id('globalFooter').title('Footer').schemaType('globalFooter').documentId('globalFooter')
                 ),
               S.listItem().title('Social Media').icon(CgProfile).child(S.documentTypeList('social')),
+              S.listItem().title('Scripts').icon(BsCode).child(S.documentTypeList('scripts')),
             ])
         ),
       ...S.documentTypeListItems().filter(hiddenDocTypes),

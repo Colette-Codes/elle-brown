@@ -8,6 +8,7 @@ import globalHeader from './documents/globalHeader'
 import globalFooter from './documents/globalFooter'
 import globalSEO from './documents/globalSEO'
 import social from './documents/social'
+import scripts from './documents/scripts'
 import page from './documents/page'
 import pageBuilder from './objects/pageBuilder'
 import pageBuilderFullwidthContent from './objects/pageBuilderFullwidthContent'
@@ -38,6 +39,7 @@ export default createSchema({
     globalFooter,
     globalSEO,
     social,
+    scripts,
     page,
 
     /* objects */

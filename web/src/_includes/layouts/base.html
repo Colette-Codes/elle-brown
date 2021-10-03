@@ -27,6 +27,12 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
+    {%- if site.headScripts %}
+      {%- for s in site.headScripts %}
+        {{ s.script | safe }}
+      {%- endfor %}
+    {%- endif %}
+
     <style>{% include "css/app.css" %}</style>
   </head>
   <body>
@@ -36,5 +42,11 @@
     </main>
     {% include "partials/global/footer.html" %}
     <script src="/js/app.js" type="module"></script>
+    
+    {%- if site.footerScripts %}
+      {%- for s in site.footerScripts %}
+        {{ s.script | safe }}
+      {%- endfor %}
+    {%- endif %}
   </body>
 </html>
