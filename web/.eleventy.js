@@ -7,7 +7,7 @@ module.exports = config => {
   config.setUseGitIgnore(false)
   // Pass images to dist folder
   config.addPassthroughCopy("src/assets/images")
-  config.addPassthroughCopy("src/assets/meta", "/")
+  config.addPassthroughCopy({"src/assets/meta": "/"})
   config.addPassthroughCopy("src/_includes/partials/icons")
   // Filter to minimise inline js
   config.addNunjucksAsyncFilter('jsmin', filters.jsmin)
