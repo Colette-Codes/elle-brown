@@ -40,6 +40,12 @@ export default {
       to: { type: 'page' },
     },
     {
+      title: '404 Page',
+      name: 'pageNotFound',
+      type: 'reference',
+      to: { type: 'page' },
+    },
+    {
       title: 'Open Graph Image',
       name: 'ogImage',
       type: 'image',
