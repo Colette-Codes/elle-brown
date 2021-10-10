@@ -7,7 +7,7 @@
           {%- if item.link._type === 'social' -%}
             {% set link = item.link %}
             <li class="navigation__icon">
-              <a aria-label="{{link.label}}" href="{{link.url | url }}" target="_blank">
+              <a aria-label="{{link.label}}" href="{{link.url | url }}" target="_blank" rel="nofollow noreferrer noopener">
                 {% set platform = link.label %}
                 {% include "partials/components/socialIcon.html" %}
               </a>

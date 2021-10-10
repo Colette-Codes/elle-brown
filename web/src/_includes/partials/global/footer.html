@@ -22,7 +22,7 @@
           {%- for item in site.footer.menuSocial -%}
           <li>
             <li>
-              <a aria-label="{{item.label}}" href="{{item.url | url }}" target="_blank">
+              <a aria-label="{{item.label}}" href="{{item.url | url }}" target="_blank" rel="nofollow noreferrer noopener">
                 {% set platform = item.label %}
                 {% include "partials/components/socialIcon.html" %}
               </a>

@@ -19,6 +19,7 @@ module.exports = {
               href: link.url,
               'aria-label': link.label,
               target: '_blank',
+              rel: 'nofollow noreferrer noopener',
               innerHTML: getSocialIcon(link.label),
             }),
           ])
